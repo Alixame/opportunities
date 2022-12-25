@@ -1,5 +1,6 @@
 {
     "name": "alixame/opportunities",
+    "description": "Lead capture package (opportunities) for Laravel",
     "authors": [
         {
             "name": "Lucas Alixame",
