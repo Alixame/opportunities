@@ -1,0 +1,15 @@
+{
+    "name": "alixame/opportunities",
+    "authors": [
+        {
+            "name": "Lucas Alixame",
+            "email": "lucasali2003@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Alixame\\opportunities\\": "src/"
+        }
+    },
+}
