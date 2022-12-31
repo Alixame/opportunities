@@ -8,6 +8,8 @@
         }
     ],
     "require": {},
+    "keywords": ["leads","opportunity","laravel","package"],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Alixame\\opportunities\\": "src/"
