@@ -81,7 +81,8 @@ class OpportunityController extends Controller
         // ENVIANDO DADOS PARA O BANCO
         $opportunity = $this->opportunity->create([
             'name' => $request->name,
-            'price' => $request->price,
+            'email' => $request->email,
+            'telephone' => $request->telephone,
         ]);
 
         // RETORNANDO REGISTRO CADASTRADO
