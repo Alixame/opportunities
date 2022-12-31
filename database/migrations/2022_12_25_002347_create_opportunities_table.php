@@ -19,6 +19,7 @@ class CreateOpportunitiesTable extends Migration
             $table->string('email', 50);
             $table->string('telephone', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
