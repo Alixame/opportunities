@@ -203,9 +203,9 @@ class OpportunityController extends Controller
         // RECUPERANDO DADOS DO BANCO
         $opportunityRepository = new OpportunityRepository($this->opportunity);
 
-        $opportunities = $opportunityRepository->filters("status:=:$status");
+        $opportunityRepository->filters("status:=:$status");
 
         // RETORNANDO DADOS DO BANCO PAGINADOS
-        return response()->json($opportunities, 200);
+        return response()->json($opportunityRepository->getResult(), 200);
     }
 }
