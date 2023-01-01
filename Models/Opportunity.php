@@ -15,9 +15,8 @@ class Opportunity extends Model
     // CAMPOS DA TABELA RECUPERADOS EM MASSA
     protected $fillable = [
         'name',
-        'function',
-        'unit_price',
-        'unit_of_measure_id'
+        'email',
+        'telephone'
     ];
     
     protected $table = 'opportunities';
