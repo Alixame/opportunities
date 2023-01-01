@@ -16,7 +16,9 @@ class Opportunity extends Model
     protected $fillable = [
         'name',
         'email',
-        'telephone'
+        'telephone',
+        'message',
+        'status'
     ];
     
     protected $table = 'opportunities';

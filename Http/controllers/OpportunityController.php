@@ -83,6 +83,8 @@ class OpportunityController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'telephone' => $request->telephone,
+            'message' => $request->message,
+            'status' => 1
         ]);
 
         // RETORNANDO REGISTRO CADASTRADO
@@ -194,5 +196,16 @@ class OpportunityController extends Controller
 
         // RETORNA A RESPONSA EM JSON
         return response()->json(['message' => 'Registro excluido com sucesso!'], 200);
+    }
+
+    public function showByStatus(int $status)
+    {
+        // RECUPERANDO DADOS DO BANCO
+        $opportunityRepository = new OpportunityRepository($this->opportunity);
+
+        $opportunities = $opportunityRepository->filters("status:=:$status");
+
+        // RETORNANDO DADOS DO BANCO PAGINADOS
+        return response()->json($opportunities, 200);
     }
 }

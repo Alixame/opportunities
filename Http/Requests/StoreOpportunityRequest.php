@@ -4,7 +4,7 @@ namespace Alixame\Opportunities\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOpportunityRequest extends FormRequest
+class UpdateOpportunityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,9 @@ class StoreOpportunityRequest extends FormRequest
         return [
             'name' => 'required|min:3',
             'email' => 'required|email|min:3',
-            'telephone' => 'required|numeric'
+            'telephone' => 'required|numeric',
+            'message' => 'required|min:3|max:500',
+            'status' => 'numeric',
         ];
     }
 
@@ -43,7 +45,11 @@ class StoreOpportunityRequest extends FormRequest
             'email.required' => 'O campo nome é obrigatorio',
             'email.email' => 'O campo email deve ser valido',
             'telephone.required' => 'O campo telefone é obrigatorio',
-            'telephone.numeric' => 'O campo telefone deve conter apenas numeros'
+            'telephone.numeric' => 'O campo telefone deve conter apenas numeros',
+            'message.required' => 'O campo mensagem é obrigatorio',
+            'message.min' => 'O campo mensagem teve ter do minimo 3 caracter',
+            'message.max' => 'O campo mensagem teve ter do maximo 500 caracter',
+            'status.numeric' => 'O campo status deve conter apenas numeros'
         ];
     }
 }

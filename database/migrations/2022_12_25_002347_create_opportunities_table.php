@@ -18,6 +18,8 @@ class CreateOpportunitiesTable extends Migration
             $table->string('name', 50);
             $table->string('email', 50);
             $table->string('telephone', 50);
+            $table->text('message');
+            $table->tinyInteger('status');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ class CreateOpportunitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opportunity');
+        Schema::dropIfExists('opportunities');
     }
 }
