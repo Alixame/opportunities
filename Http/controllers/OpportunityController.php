@@ -8,6 +8,7 @@ use Alixame\Opportunities\Http\Requests\StoreOpportunityRequest;
 use Alixame\Opportunities\Http\Requests\UpdateOpportunityRequest;
 use Alixame\Opportunities\Repositories\OpportunityRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OpportunityController extends Controller
 {
@@ -86,6 +87,20 @@ class OpportunityController extends Controller
             'message' => $request->message,
             'status' => 1
         ]);
+
+        // ENVIANDO EMAIL
+        Mail::send(
+            'views.mail',
+            ['opportunity' => $opportunity],
+            function ($message) use ($opportunity) {
+                $message->from(
+                    '' . env('MAIL_FROM_ADDRESS') . '',
+                    '' . env('APP_NAME') . ''
+                );
+                $message->to($opportunity->email);
+                $message->subject('Oportunidade recebida');
+            }
+        );
 
         // RETORNANDO REGISTRO CADASTRADO
         return response()->json($opportunity, 201);
