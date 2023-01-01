@@ -32,15 +32,15 @@ class OpportunityController extends Controller
         $opportunityRepository = new OpportunityRepository($this->opportunity);
 
         // VERIFICANDO SE EXISTE FILTRO DE ATRIBUTOS DA RELAÇÃO NA REQUISIÇÃO
-        if ($request->has('attributes_opportunity')) {
-            // SE SIM -> DEFINE A RELAÇÃO E OS ATRIBUTOS QUE SERÃO TRAZIDOS
-            $relationshipAttributes = 'Opportunity:id,' . $request->attributes_opportunity;
+        // if ($request->has('attributes_opportunity')) {
+        //     // SE SIM -> DEFINE A RELAÇÃO E OS ATRIBUTOS QUE SERÃO TRAZIDOS
+        //     $relationshipAttributes = 'Opportunity:id,' . $request->attributes_opportunity;
 
-            $opportunityRepository->relatedRecordAttributes($relationshipAttributes);
-        } else {
-            // SE NÃO -> DEFINE A RELAÇÃO E TRAS TODOS OS ATRIBUTOS
-            $opportunityRepository->relatedRecordAttributes('Opportunity');
-        }
+        //     $opportunityRepository->relatedRecordAttributes($relationshipAttributes);
+        // } else {
+        //     // SE NÃO -> DEFINE A RELAÇÃO E TRAS TODOS OS ATRIBUTOS
+        //     $opportunityRepository->relatedRecordAttributes('Opportunity');
+        // }
 
         // VERIFICANDO SE EXISTE FILTRO NA REQUISIÇÃO
         if ($request->has('filters')) {
